@@ -3,9 +3,18 @@ package impl;
 import adt.FilmarkivADT;
 
 public class Filmarkiv implements FilmarkivADT {
+    Film[] filmTab;
+    private int antall;
+
+    public Filmarkiv(int lengde){
+        filmTab = new Film[lengde];
+        antall = 0;
+    }
+
+
     @Override
     public Film finnFilm(int nr) {
-        return null;
+        return Film[nr];
     }
 
     @Override

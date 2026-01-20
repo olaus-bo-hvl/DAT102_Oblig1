@@ -14,7 +14,10 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public Film finnFilm(int nr) {
-        return Film[nr];
+        if (nr > antall) {
+            return null;
+        }
+        return filmTab[nr];
     }
 
     @Override

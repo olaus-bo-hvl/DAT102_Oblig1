@@ -55,7 +55,7 @@ public class Filmarkiv implements FilmarkivADT {
         // Lager en midlertidig tabell som skal returneres på slutten av metoden
         Film[] tempTab = new Film[antall];
         int lengde = 0;     // skal indikere hvor i tempTab som er neste ledige plass
-        // går gjennom tabellen og ser hvis tittelene matcher delstrengen. hvis ja, legges den filmen til i tempTab.
+        // går gjennom tabellen og ser hvis tittelene inneholder delstrengen. hvis ja, legges den filmen til i tempTab.
         for (int i = 0; i < antall; i++) {
             if (filmTab[i].getTittel().contains(delstreng)) {
                 tempTab[lengde] = filmTab[i];
@@ -67,7 +67,17 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public Film[] soekProdusent(String delstreng) {
-        return new Film[0];
+        // Lager en midlertidig tabell som skal returneres på slutten av metoden
+        Film[] tempTab = new Film[antall];
+        int lengde = 0;     // skal indikere hvor i tempTab som er neste ledige plass
+        // går gjennom tabellen og ser hvis produsenten inneholder delstrengen. hvis ja, legges den filmen til i tempTab.
+        for (int i = 0; i < antall; i++) {
+            if (filmTab[i].getProdusent().contains(delstreng)) {
+                tempTab[lengde] = filmTab[i];
+                lengde++;
+            }
+        }
+        return tempTab;
     }
 
     @Override

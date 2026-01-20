@@ -12,7 +12,6 @@ public class Film{
 	public Film(Sjanger sjanger){
 		this.sjanger = sjanger;
 	}
-	
 	public Film(int filmnr, String produsent, String tittel, int aar, String studio){
 		this.filmnr = filmnr;
 		this.produsent = produsent;
@@ -50,4 +49,14 @@ public class Film{
 	public void setStudio(String studio){
 		this.studio = studio;
 	}
+	// equals, hashcode
+	public boolean equals(int filmnr1, int filmnr2){
+		if (filmnr1 == filmnr2){
+			System.out.println("like.");
+			return true;
+		}
+		System.out.println("ulike.");
+		return false;
+	}
+	
 }

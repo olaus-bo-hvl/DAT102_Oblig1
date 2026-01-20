@@ -24,13 +24,7 @@ public class Filmarkiv implements FilmarkivADT {
     public void leggTilFilm(Film nyFilm) {
         //sjekke at det er plass
         if(antall<filmTab.length){
-            //går gjennom tabellen
-            for(int i=0;i<filmTab.length;i++){
-                if(filmTab[i] == null){
-                    //legger til filmen
-                    filmTab[i] = nyFilm;
-                }
-            }
+            filmTab[antall] = nyFilm;
             antall++;
         }
     }

@@ -38,7 +38,7 @@ public class Filmarkiv implements FilmarkivADT {
     @Override
     public boolean slettFilm(int filmnr) {
 
-        if(antall >= filmTab.length){
+        if(antall <= 0){
             return false;
         }
 

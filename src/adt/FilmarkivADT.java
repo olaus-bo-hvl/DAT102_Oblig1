@@ -17,7 +17,7 @@ public interface FilmarkivADT {
     void leggTilFilm(Film nyFilm);
 
     /**
-     * sletter en fil med gitt nr
+     * sletter en film med gitt nr
      * @param filmnr nr på film som skal slettes
      * @return true dersom filmen ble slettet, false ellers
      */

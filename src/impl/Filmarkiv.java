@@ -41,7 +41,8 @@ public class Filmarkiv implements FilmarkivADT {
 
         for(int i = 0; i < antall; i++){
             if(filmTab[i].getFilmnr() == filmnr){
-                filmTab[i] = null;
+                filmTab[i] = filmTab[antall - 1];
+                filmTab[antall - 1] = null;
                 antall--;
                 return true;
             }

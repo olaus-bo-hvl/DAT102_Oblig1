@@ -14,12 +14,19 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public Film finnFilm(int nr) {
-        return Film[nr];
+        if (nr > antall) {
+            return null;
+        }
+        return filmTab[nr];
     }
 
     @Override
     public void leggTilFilm(Film nyFilm) {
-
+        for(Film i : filmTab){
+            if(i == null && filmTab.lengde != 0){
+                i = nyFilm;
+            }
+        }
     }
 
     @Override

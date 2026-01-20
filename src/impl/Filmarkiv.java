@@ -22,10 +22,16 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public void leggTilFilm(Film nyFilm) {
-        for(int i=0;i<filmTab.length;i++){
-            if(filmTab[i] == null){
-                filmTab[i] = nyFilm;
+        //sjekke at det er plass
+        if(antall<filmTab.length){
+            //går gjennom tabellen
+            for(int i=0;i<filmTab.length;i++){
+                if(filmTab[i] == null){
+                    //legger til filmen
+                    filmTab[i] = nyFilm;
+                }
             }
+            antall++;
         }
     }
 

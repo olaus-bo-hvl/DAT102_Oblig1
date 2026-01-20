@@ -19,7 +19,11 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public void leggTilFilm(Film nyFilm) {
-
+        for(Film i : filmTab){
+            if(i == null && filmTab.lengde != 0){
+                i = nyFilm;
+            }
+        }
     }
 
     @Override

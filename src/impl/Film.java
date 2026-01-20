@@ -1,21 +1,21 @@
-package impl;
-
 public class Film{
 	private int	filmnr;
 	private String produsent;
 	private String tittel;
 	private int aar;
-	private enum sjanger;
+	public enum Sjanger{Action, Drama, History, SciFi}
 	private String studio;
+	private Sjanger sjanger;
 	
-	public Film(){
+	public Film(Sjanger sjanger){
+		this.sjanger = sjanger;
 	}
-	public Film(int filmnr, String produsent, String tittel, int aar, enum sjanger, String studio){
+	
+	public Film(int filmnr, String produsent, String tittel, int aar, String studio){
 		this.filmnr = filmnr;
 		this.produsent = produsent;
 		this.tittel = tittel;
 		this.aar = aar;
-		this.sjanger = sjanger;
 		this.studio = studio;
 	}
 	public int getFilmnr(){
@@ -41,12 +41,6 @@ public class Film{
 	}
 	public void setAar(int aar){
 		this.aar = aar;
-	}
-	public enum getSjanger(){
-		return sjanger;
-	}
-	public void setSjanger(enum sjanger){
-		this.sjanger = sjanger;
 	}
 	public String getStudio(){
 		return studio;

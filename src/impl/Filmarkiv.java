@@ -39,6 +39,7 @@ public class Filmarkiv implements FilmarkivADT {
         for(int i=0;i<filmTab.length;i++){
             nyTab[i] = filmTab[i];
         }
+        filmTab = nyTab;
     }
 
     @Override

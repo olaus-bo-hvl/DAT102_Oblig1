@@ -48,8 +48,10 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public Film[] soekTittel(String delstreng) {
+        // Lager en midlertidig tabell som skal returneres på slutten av metoden
         Film[] tempTab = new Film[antall];
-        int lengde = 0;
+        int lengde = 0;     // skal indikere hvor i tempTab som er neste ledige plass
+        // går gjennom tabellen og ser hvis tittelene matcher delstrengen. hvis ja, legges den filmen til i tempTab.
         for (int i = 0; i < antall; i++) {
             if (filmTab[i].getTittel().contains(delstreng)) {
                 tempTab[lengde] = filmTab[i];

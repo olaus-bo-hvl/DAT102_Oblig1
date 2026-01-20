@@ -14,10 +14,13 @@ public class Filmarkiv implements FilmarkivADT {
 
     @Override
     public Film finnFilm(int nr) {
-        if (nr > antall) {
-            return null;
+        // går gjennom tabellen og sjekker om filmnr er likt nr og returnerer filmen hvis nr stemmer
+        for (int i = 0; i < antall; i++) {
+            if (nr == filmTab[i].getFilmnr()) {
+                return filmTab[i];
+            }
         }
-        return filmTab[nr];
+        return null;
     }
 
     @Override

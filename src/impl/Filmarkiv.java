@@ -35,12 +35,10 @@ public class Filmarkiv implements FilmarkivADT {
     @Override
     public boolean slettFilm(int filmnr) {
 
-        if(antall <= 0){
-            return false;
-        }
-
+        //Gå gjennom tabellen og sjekke om filmene i tabellen har samme nummer som parameteren
+        //Hvis nummeret er likt blir filmen slettet
         for(int i = 0; i < antall; i++){
-            if(filmTab[i].getFilmnr() == filmnr){
+            if(filmTab[i] !=null && filmTab[i].getFilmnr() == filmnr){
                 filmTab[i] = filmTab[antall - 1];
                 filmTab[antall - 1] = null;
                 antall--;

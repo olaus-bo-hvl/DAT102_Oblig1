@@ -1,6 +1,9 @@
 package klient;
 
+import java.util.Scanner;
+
 public class Tekstgrensesnitt{
+	Scanner ska = new Scanner(System.in);
 	// Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
 	public Film lesFilm(){
 	// TODO

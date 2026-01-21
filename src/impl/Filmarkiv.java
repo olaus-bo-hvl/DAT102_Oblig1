@@ -26,7 +26,7 @@ public class Filmarkiv implements FilmarkivADT {
     @Override
     public void leggTilFilm(Film nyFilm) {
         if(antall==filmTab.length){
-            utvid(filmTab);
+            utvid();
         }
         //sjekke at det er plass
         if(antall<filmTab.length){
@@ -34,8 +34,8 @@ public class Filmarkiv implements FilmarkivADT {
             antall++;
         }
     }
-    private void utvid(Film[] tab){
-        Film[] nyTab = new Film[tab.length*2];
+    private void utvid(){
+        Film[] nyTab = new Film[filmTab.length*2];
         for(int i=0;i<filmTab.length;i++){
             nyTab[i] = filmTab[i];
         }

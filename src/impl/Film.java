@@ -5,13 +5,8 @@ public class Film{
 	private String produsent;
 	private String tittel;
 	private int aar;
-	public enum Sjanger{Action, Drama, History, SciFi}
 	private String studio;
-	private Sjanger sjanger;
 	
-	public Film(Sjanger sjanger){
-		this.sjanger = sjanger;
-	}
 	public Film(int filmnr, String produsent, String tittel, int aar, String studio){
 		this.filmnr = filmnr;
 		this.produsent = produsent;
@@ -49,14 +44,17 @@ public class Film{
 	public void setStudio(String studio){
 		this.studio = studio;
 	}
-	// equals, hashcode
-	public boolean equals(int filmnr1, int filmnr2){
-		if (filmnr1 == filmnr2){
-			System.out.println("like.");
-			return true;
-		}
-		System.out.println("ulike.");
-		return false;
+	// overriding default equals method
+	@Override
+	public boolean equals(Object obj){
+		if (this == obj) return true;
+		if (!(obj instanceof Film)) return false;
+		Film andre = (Film) obj;
+		return filmnr == andre.filmnr;
 	}
-	
+	// overriding default hashCode method
+	@Override
+	public int hashCode(){
+		return Integer.hashCode(filmnr);
+	}
 }

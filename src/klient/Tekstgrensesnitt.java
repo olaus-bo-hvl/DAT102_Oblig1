@@ -33,12 +33,21 @@ public class Tekstgrensesnitt{
 	}
 	// Skriver ut alle Filmer av en produsent (produsent er delstreng)
 	public void skrivUtFilmProdusent(FilmarkivADT arkiv, String delstreng) {
-	
+		for (int i = 0; i < arkiv.length; i++){
+			if (arkiv[i].equals(Film.getProdusent(delstreng))){
+				System.out.println(arkiv[i]);
+			}
+		}
 	}
 	// Skriver ut en enkel statistikk som inneholder antall filmer totalt
 	// og hvor mange det er i hver sjanger.
 	public void skrivUtStatistikk(FilmarkivADT arkiv) {
-		
+		int filmer = 0;
+		int filmerUnderSjanger = 0;
+		for (Film film : arkiv){
+			filmer++;
+			if (film : Film.getSjanger(film) // holder på
+		}
 	}
 	// andre metoder her
 }

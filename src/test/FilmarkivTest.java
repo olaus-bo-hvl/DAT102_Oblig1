@@ -5,8 +5,7 @@ import impl.Filmarkiv;
 import impl.Sjanger;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class FilmarkivTest {
 
@@ -60,12 +59,19 @@ public class FilmarkivTest {
     public void testSoekTittel(){
 
         Film film1 = new Film(1,"HVl-studios", "Avatar", 2020, "E403", Sjanger.ADVENTURE);
+        Film film2 = new Film(2,"Warner", "Avatar2", 2021, "E402", Sjanger.ACTION);
+        Film film3 = new Film(3,"AresHjem", "Pirates of the Caribbean", 2019, "E403", Sjanger.ADVENTURE);
 
         Filmarkiv arkiv = new Filmarkiv(4);
         arkiv.leggTilFilm(film1);
+        arkiv.leggTilFilm(film2);
+        arkiv.leggTilFilm(film3);
 
+        Film[] resultat = arkiv.soekTittel("Avatar");
 
-        assertEquals(arkiv, arkiv.soekTittel("avatar"));
+        assertEquals(3, resultat.length);
+        assertTrue(resultat[0].getTittel().contains("Avatar"));
+        assertTrue(resultat[1].getTittel().contains("Avatar"));
     }
 
 }

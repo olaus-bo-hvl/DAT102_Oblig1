@@ -50,4 +50,6 @@ public class Tekstgrensesnitt{
 		}
 	}
 	// andre metoder her
+
+
 }

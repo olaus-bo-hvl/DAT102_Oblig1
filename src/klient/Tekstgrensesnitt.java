@@ -1,13 +1,16 @@
 package klient;
 
+import adt.FilmarkivADT;
+import impl.Film;
+
 import java.util.Scanner;
 
 public class Tekstgrensesnitt{
 	Scanner ska = new Scanner(System.in);
 	// Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
-	public Film lesFilm(){
+	//public Film lesFilm(){
 	// TODO
-	}
+	//}
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void skrivUtFilm(Film film) {
 	// TODO

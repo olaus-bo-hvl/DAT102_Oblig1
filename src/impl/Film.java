@@ -6,13 +6,15 @@ public class Film{
 	private String tittel;
 	private int aar;
 	private String studio;
+    private Sjanger sjanger;
 	
-	public Film(int filmnr, String produsent, String tittel, int aar, String studio){
+	public Film(int filmnr, String produsent, String tittel, int aar, String studio, Sjanger sjanger){
 		this.filmnr = filmnr;
 		this.produsent = produsent;
 		this.tittel = tittel;
 		this.aar = aar;
 		this.studio = studio;
+        this.sjanger = sjanger;
 	}
 	public int getFilmnr(){
 		return filmnr;
@@ -44,6 +46,12 @@ public class Film{
 	public void setStudio(String studio){
 		this.studio = studio;
 	}
+    public Sjanger getSjanger(){
+        return sjanger;
+    }
+    public void setSjanger(Sjanger sjanger){
+        this.sjanger = sjanger;
+    }
 	// overriding default equals method
 	@Override
 	public boolean equals(Object obj){

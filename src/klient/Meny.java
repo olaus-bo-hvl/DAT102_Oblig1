@@ -3,12 +3,16 @@ package klient;
 import java.util.Scanner;
 
 public class Meny{
-	public Meny(){
-		Scanner ska = new Scanner(System.in);
-		String spor = "";
-		while (!spor.equals("s")){
-			System.out.println("hva onsker du a gjore?");
-			spor = ska.nextLine();
+	private Tekstgrensesnitt tekstgr;
+	private FilmarkivADT filmarkiv;
+	
+	public Meny(FilmarkivADT filmarkiv){
+		tekstgr = new Tekstgrensesnitt();
+		this.filmarkiv = filmarkiv;
 		}
-	}
+	public void start(){
+		// legg inn en del forhåndsdefinerte filmer for å teste metodene
+		// ..
+		// TODO
+	}	
 }

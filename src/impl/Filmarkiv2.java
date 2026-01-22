@@ -90,11 +90,20 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public int antall(Sjanger sjanger) {
-        return 0;
+        int antallSjanger = 0;  //Lager en int som skal returneres med antall filmer med samme sjanger
+        LinearNode<Film> current = start;   //Lager current
+        //While-løkke som går gjennom listen og sjekker om sjangeren på filmene er lik den som søkes etter, antallSjanger++ hvis det er likt
+        while (current != null) {
+            if (current.getData().getSjanger() == sjanger) {
+                antallSjanger++;
+            }
+            current = current.getNeste();
+        }
+        return antallSjanger;   //returnerer antallSjanger
     }
 
     @Override
     public int antall() {
-        return 0;
+        return antall;
     }
 }

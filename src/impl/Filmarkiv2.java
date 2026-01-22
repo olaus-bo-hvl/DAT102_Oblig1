@@ -1,6 +1,7 @@
 package impl;
 
 import adt.FilmarkivADT;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.UpperCase;
 
 import java.util.LinkedList;
 
@@ -70,7 +71,7 @@ public class Filmarkiv2 implements FilmarkivADT {
         LinearNode<Film> current = start;
 
         while(current != null){
-            if(current.getData().getTittel().contains(delstreng)){
+            if(current.getData().getTittel().toUpperCase().contains(delstreng.toUpperCase())){
                 tempTab[ant] = current.getData();
                 ant++;
             }
@@ -96,7 +97,7 @@ public class Filmarkiv2 implements FilmarkivADT {
         //Lager en while løkke som stopper når vi kommer ut av listen
         while (current != null) {
             //If-løkken sjekker om delstrengen er med i produsentnavnet til current og hvis det stemmer legges current til i tabellen
-            if (current.getData().getProdusent().contains(delstreng)) {
+            if (current.getData().getProdusent().toUpperCase().contains(delstreng.toUpperCase())) {
                 tempTab[ant] = current.getData();
                 ant++;
             }
@@ -124,5 +125,23 @@ public class Filmarkiv2 implements FilmarkivADT {
     @Override
     public int antall() {
         return antall;
+    }
+
+    public static void main(String[] args) {
+        Filmarkiv2 arkiv = new Filmarkiv2();
+        Film film1 = new Film(1,"HVl-studios", "Avatar", 2020, "E403", Sjanger.ADVENTURE);
+        arkiv.leggTilFilm(film1);
+        Film film2 = new Film(2,"Warner", "Iron man", 2021, "E402", Sjanger.ACTION);
+        arkiv.leggTilFilm(film2);
+        Film film3 = new Film(3,"AresHjem", "Pirates of the Caribbean", 2019, "E403", Sjanger.ADVENTURE);
+        arkiv.leggTilFilm(film3);
+        Film film4 = new Film(4,"Aretho", "Mr.Bean", 2002, "E405", Sjanger.HORROR);
+        arkiv.leggTilFilm(film4);
+        Film film5 = new Film(5,"HVl-studios", "Harry Potter", 2001, "E408", Sjanger.DRAMA);
+        arkiv.leggTilFilm(film5);
+        Film film6 = new Film(6,"Warner", "Ringens Herre", 1999, "E409", Sjanger.FANTASY);
+        arkiv.leggTilFilm(film6);
+
+        System.out.println(arkiv.soekTittel("are").toString());
     }
 }

@@ -58,7 +58,21 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public Film[] soekTittel(String delstreng) {
-        return new Film[0];
+
+        Film[] tempTab = new Film[antall];
+        int ant = 0;
+
+        LinearNode<Film> current = start;
+
+        while(current != null){
+            if(current.getData().getTittel().contains(delstreng)){
+                tempTab[ant] = current.getData();
+                ant++;
+            }
+            current = current.getNeste();
+        }
+        return tempTab;
+
     }
 
     @Override

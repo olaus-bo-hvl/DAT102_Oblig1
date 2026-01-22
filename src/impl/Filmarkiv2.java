@@ -63,7 +63,7 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public Film[] soekTittel(String delstreng) {
-
+        //det bli gjort det samme her som i soekProdusent. soekProdusent er neste metode.
         Film[] tempTab = new Film[antall];
         int ant = 0;
 

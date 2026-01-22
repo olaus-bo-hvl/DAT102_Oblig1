@@ -15,45 +15,50 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public Film finnFilm(int nr) {
-        LinearNode<Film> current = start;
+        LinearNode<Film> current = start;   //Lager en temp node-peker som peker på start
+        //while-løkke og if-else-løkke som går gjennom listen og leter etter filmen
         while (current != null) {
-            if (current.getData().getFilmnr() == nr) {
+            if (current.getData().getFilmnr() == nr) {      //hvis noden som vi ser på nå har samme filmnr som blir gitt returnerer den filmen
                 return current.getData();
-            } else {
+            } else {        //hvis ikke setter vi current til neste node i listen
                 current = current.getNeste();
             }
         }
-        return null;
+        return null;        //returnerer null hvis den ikke finner listen
     }
 
     @Override
     public void leggTilFilm(Film nyFilm) {
-        LinearNode<Film> ny = new LinearNode<>(nyFilm);
-        ny.setNeste(start);
-        start = ny;
-        antall++;
+        LinearNode<Film> ny = new LinearNode<>(nyFilm); //Oppretter noden som skal legges til i listen
+        ny.setNeste(start); //setter den nye noden til å peke på forrige start
+        start = ny; //setter den nye noden som start
+        antall++;   //øker antall med 1
     }
 
     @Override
     public boolean slettFilm(int filmnr) {
+        if (antall == 0) return false;  //sjekker om listen er tom
+        //Sletter filmen, om den ligger på første plass i listen
         if (start.getData().getFilmnr() == filmnr) {
             start = start.getNeste();
             antall--;
             return true;
         }
+        //Lager to node-pekere for å holde styr på to plasser i listen om gangen, starter med plass 1 og 2
         LinearNode<Film> forrige = start;
         LinearNode<Film> current = start.getNeste();
+        //While-løkke og if-løkke som går gjennom listen og finner filmen som skal slettes
         while (current != null) {
             if (current.getData().getFilmnr() == filmnr) {
-                forrige.setNeste(current.getNeste());
-                antall--;
+                forrige.setNeste(current.getNeste());   //Setter forrige node til å peke på noden etter den noden som slettes
+                antall--;   //minker antall med 1 siden en film slettes
                 return true;
-            } else {
-                forrige = current;
-                current = current.getNeste();
             }
+            //flytter forrige og current et steg videre i listen
+            forrige = current;
+            current = current.getNeste();
         }
-        return false;
+        return false;   //returnerer false hvis filmen ikke var i listen
     }
 
     @Override

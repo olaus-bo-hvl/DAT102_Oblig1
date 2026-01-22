@@ -3,18 +3,24 @@ package impl;
 import adt.FilmarkivADT;
 
 public class Filmarkiv2 implements FilmarkivADT {
-
-    private int antall;
+    private LinearNode<Film> filmTab;
     private LinearNode<Film> start;
+    private int antall;
 
-    public Filmarkiv2(int antall, LinearNode<Film> start){
-        this.antall = antall;
-        this.start = start;
+    public Filmarkiv2(Film nyFilm){
+        filmTab = new LinearNode<>(nyFilm);
+        start = null;
+        antall = 1;
     }
 
     @Override
     public Film finnFilm(int nr) {
-
+        LinearNode current;
+        for (int i = 0; i < antall; i++) {
+            if (filmTab.getData().getFilmnr() == nr) {
+                return filmTab.getData();
+            }
+        }
         return null;
     }
 

@@ -1,7 +1,21 @@
 package impl;
 
-public class LinearNode<T> {
+public class LinearNode<Film> {
 
-    public T data;
-    public LinearNode<T> neste;
+    private Film data;
+    private LinearNode<Film> neste;
+    private int antall;
+
+    public LinearNode(Film data) {
+        this.data = data;
+        this.neste = null;
+    }
+
+    public Film getData() {
+        return data;
+    }
+
+    public void setData(Film data) {
+        this.data = data;
+    }
 }

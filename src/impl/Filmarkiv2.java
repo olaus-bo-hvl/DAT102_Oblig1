@@ -63,7 +63,29 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public Film[] soekProdusent(String delstreng) {
-        return new Film[0];
+        // Sjekker at listen ikke er tom
+        if (antall == 0) {
+            return null;
+        }
+
+        // Lager tabellen som skal returneres, lager den like lang som antall sånn at den er lang nok
+        Film[] tempTab = new Film[antall];
+        //Lager en peker som peker på den noden som vi ser på
+        LinearNode<Film> current = start;
+        //Lager en temp antall som sier hvor i tabellen vi er, starter på 0
+        int ant = 0;
+        //Lager en while løkke som stopper når vi kommer ut av listen
+        while (current != null) {
+            //If-løkken sjekker om delstrengen er med i produsentnavnet til current og hvis det stemmer legges current til i tabellen
+            if (current.getData().getProdusent().contains(delstreng)) {
+                tempTab[ant] = current.getData();
+                ant++;
+            }
+            //current blir satt til neste node i listen
+            current = current.getNeste();
+        }
+        //returnerer tabellen med filmene med produsenter som inneholder delstreng i navnet
+        return tempTab;
     }
 
     @Override

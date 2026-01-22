@@ -2,23 +2,25 @@ package impl;
 
 import adt.FilmarkivADT;
 
+import java.util.LinkedList;
+
 public class Filmarkiv2 implements FilmarkivADT {
-    private LinearNode<Film> filmTab;
     private LinearNode<Film> start;
     private int antall;
 
-    public Filmarkiv2(Film nyFilm){
-        filmTab = new LinearNode<>(nyFilm);
+    public Filmarkiv2(){
         start = null;
-        antall = 1;
+        antall = 0;
     }
 
     @Override
     public Film finnFilm(int nr) {
-        LinearNode current;
-        for (int i = 0; i < antall; i++) {
-            if (filmTab.getData().getFilmnr() == nr) {
-                return filmTab.getData();
+        LinearNode<Film> current = start;
+        while (current != null) {
+            if (current.getData().getFilmnr() == nr) {
+                return current.getData();
+            } else {
+                current = current.getNeste();
             }
         }
         return null;
@@ -26,7 +28,10 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public void leggTilFilm(Film nyFilm) {
-
+        LinearNode<Film> ny = new LinearNode<>(nyFilm);
+        ny.setNeste(start);
+        start = ny;
+        antall++;
     }
 
     @Override

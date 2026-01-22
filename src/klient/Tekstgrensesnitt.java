@@ -1,18 +1,18 @@
-package klient;
+package src.klient;
 
 import adt.FilmarkivADT;
 import impl.Film;
-
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Tekstgrensesnitt{
-    /*
 	Scanner ska = new Scanner(System.in);
 	// Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
 	public Film lesFilm(){
 		System.out.println("film?:" );
 		les = ska.nextLine();
-		return Film. //må gjøre
+		return Film.getTittel(les);
 	}
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void skrivUtFilm(Film film) {
@@ -24,7 +24,7 @@ public class Tekstgrensesnitt{
 		"| Film nummer: " + Film.getFilmnr(film)
 		);
 	}
-	// Skriver ut alle filmer med en spesiell delstreng i tittelen
+	// Skriver ut alle filmer med en spesiell delstreng i tittecdlen
 	public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
 		for (String tittel : arkiv){ // må trolig endre type her
 			if (tittel.contains(delstreng)){
@@ -43,14 +43,15 @@ public class Tekstgrensesnitt{
 	// Skriver ut en enkel statistikk som inneholder antall filmer totalt
 	// og hvor mange det er i hver sjanger.
 	public void skrivUtStatistikk(FilmarkivADT arkiv) {
-		int filmer = 0;
-		int filmerUnderSjanger = 0;
+		int antallFilmer = 0;
+		HashMap<Film, Integer> stats = new HashMap<>();
 		for (Film film : arkiv){
-			filmer++;
-			if (film : Film.getSjanger(film) // holder på
+			antallFilmer++;
+			stats.put(getSjanger(film), stats.getOrDefault(film, 0)+1);
+		}
+		for (Map.Entry<Film, Integer> entry : stats.entrySet()){
+			System.out.println(entry.getKey() + " - " + entry.getValue());
 		}
 	}
 	// andre metoder her
-*/
-
 }

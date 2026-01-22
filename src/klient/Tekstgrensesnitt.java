@@ -1,4 +1,4 @@
-/*
+
 package klient;
 
 import adt.FilmarkivADT;
@@ -57,4 +57,4 @@ public class Tekstgrensesnitt{
 	// andre metoder her
 }
 
- */
+

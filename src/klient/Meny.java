@@ -1,4 +1,4 @@
-/*
+
 package klient;
 
 import adt.FilmarkivADT;
@@ -18,5 +18,3 @@ public class Meny{
 		// TODO
 	}	
 }
-
- */

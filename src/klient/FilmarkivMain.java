@@ -1,4 +1,4 @@
-/*
+
 package klient;
 
 import adt.FilmarkivADT;
@@ -12,4 +12,3 @@ public class FilmarkivMain {
     }
 }
 
- */

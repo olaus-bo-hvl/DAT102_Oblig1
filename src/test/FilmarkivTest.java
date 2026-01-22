@@ -73,5 +73,37 @@ public class FilmarkivTest {
         assertTrue(resultat[0].getTittel().contains("Avatar"));
         assertTrue(resultat[1].getTittel().contains("Avatar"));
     }
+    @Test
+    public void testSoekProdusent(){
+        Film film1 = new Film(1,"AresHjem", "Avatar", 2020, "E403", Sjanger.ADVENTURE);
+        Film film2 = new Film(2,"Warner", "Avatar2", 2021, "E402", Sjanger.ACTION);
+        Film film3 = new Film(3,"AresHjem", "Pirates of the Caribbean", 2019, "E403", Sjanger.ADVENTURE);
+
+        Filmarkiv arkiv = new Filmarkiv(4);
+        arkiv.leggTilFilm(film1);
+        arkiv.leggTilFilm(film2);
+        arkiv.leggTilFilm(film3);
+
+        Film[] resultat = arkiv.soekProdusent("AresHjem");
+
+        assertEquals(3, resultat.length);
+        assertTrue(resultat[0].getProdusent().contains("AresHjem"));
+        assertTrue(resultat[1].getProdusent().contains("AresHjem"));
+
+    }
+    @Test
+    public void testAntall(){
+        Film film1 = new Film(1,"AresHjem", "Avatar", 2020, "E403", Sjanger.ADVENTURE);
+        Film film2 = new Film(2,"Warner", "Avatar2", 2021, "E402", Sjanger.ACTION);
+        Film film3 = new Film(3,"AresHjem", "Pirates of the Caribbean", 2019, "E403", Sjanger.ADVENTURE);
+
+        Filmarkiv arkiv = new Filmarkiv(4);
+        arkiv.leggTilFilm(film1);
+        arkiv.leggTilFilm(film2);
+        arkiv.leggTilFilm(film3);
+
+        assertEquals(2,arkiv.antall(Sjanger.ADVENTURE));
+
+    }
 
 }

@@ -1,6 +1,5 @@
 package klient;
 
-
 import adt.FilmarkivADT;
 import impl.Filmarkiv;
 

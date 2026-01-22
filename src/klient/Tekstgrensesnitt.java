@@ -1,4 +1,4 @@
-package src.klient;
+package klient;
 
 import adt.FilmarkivADT;
 import impl.Film;

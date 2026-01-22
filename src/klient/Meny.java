@@ -1,7 +1,6 @@
 package klient;
 
 import adt.FilmarkivADT;
-
 import java.util.Scanner;
 
 public class Meny{

@@ -1,4 +1,3 @@
-
 package klient;
 
 import adt.FilmarkivADT;
@@ -8,11 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Tekstgrensesnitt{
-	Scanner ska = new Scanner(System.in);
+	Scanner input = new Scanner(System.in);
 	// Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
 	public Film lesFilm(){
-		System.out.println("film?:" );
-		les = ska.nextLine();
+		System.out.println("filmtittel?:" );
+		String les = input.nextLine();
 		return Film.getTittel(les);
 	}
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
@@ -56,5 +55,3 @@ public class Tekstgrensesnitt{
 	}
 	// andre metoder her
 }
-
-

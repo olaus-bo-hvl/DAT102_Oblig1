@@ -2,29 +2,35 @@ package klient;
 
 import adt.FilmarkivADT;
 import impl.Film;
+
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Tekstgrensesnitt{
 	Scanner nyInput = new Scanner(System.in);
+
 	// Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
 	public Film finnFilm(){
 		System.out.println("Hvordan vil du finne filmen? 1.Tittel, 2.Filmnummer");
         String input = nyInput.nextLine();
 
-        while (input != "1" || input != "2") {
+        while (!input.equals("1") || !input.equals("2")) {
             System.out.println("Feil input. Prøv igjen.");
             System.out.println("Hvordan vil du finne filmen? 1.Tittel, 2.Filmnummer");
+            System.out.print("Svar ");
             input = nyInput.nextLine();
         }
 
         if (input.equals("1")) {
-            filmArkiv.
+            System.out.print("Hva er tittelen til filmen du leter etter: ");
+            String tittel = nyInput.nextLine();
+            return arkiv.soekTittel(tittel);
         }
 
 		return Film.getTittel(les);
 	}
+    /*
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void skrivUtFilm(Film film) {
 		System.out.println(
@@ -64,5 +70,5 @@ public class Tekstgrensesnitt{
 			System.out.println(entry.getKey() + " - " + entry.getValue());
 		}
 	}
-	// andre metoder her
+	// andre metoder her*/
 }

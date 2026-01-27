@@ -7,11 +7,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Tekstgrensesnitt{
-	Scanner input = new Scanner(System.in);
+	Scanner nyInput = new Scanner(System.in);
 	// Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
-	public Film lesFilm(){
-		System.out.println("filmtittel?:" );
-		String les = input.nextLine();
+	public Film finnFilm(){
+		System.out.println("Hvordan vil du finne filmen? 1.Tittel, 2.Filmnummer");
+        String input = nyInput.nextLine();
+
+        while (input != "1" || input != "2") {
+            System.out.println("Feil input. Prøv igjen.");
+            System.out.println("Hvordan vil du finne filmen? 1.Tittel, 2.Filmnummer");
+            input = nyInput.nextLine();
+        }
+
+        if (input.equals("1")) {
+            filmArkiv.
+        }
+
 		return Film.getTittel(les);
 	}
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)

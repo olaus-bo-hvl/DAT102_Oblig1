@@ -2,11 +2,8 @@ package klient;
 
 import adt.FilmarkivADT;
 import impl.Film;
-import impl.Filmarkiv;
 import impl.Sjanger;
 import java.util.Scanner;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Tekstgrensesnitt{
 	Scanner nyInput = new Scanner(System.in);
@@ -33,7 +30,8 @@ public class Tekstgrensesnitt{
         System.out.print("Studio: ");
         String studio = nyInput.nextLine();
 
-        System.out.println("Hvilken sjanger har filmen? ACTION, ADVENTURE, COMEDY, \n" +
+        System.out.println("Hvilken sjanger har filmen? \n" +
+                "ACTION, ADVENTURE, COMEDY, \n" +
                 "DOCUMENTARY, DRAMA, FANTASY, \n" +
                 "HORROR, REALITY, SCIFI;");
         System.out.print("Sjanger: ");
@@ -47,12 +45,14 @@ public class Tekstgrensesnitt{
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void skrivUtFilm(Film film) {
 		System.out.println(
-		"| Tittel: " + film.getTittel() + "\n" +
+		"| " + "\n" +
+        "| Tittel: " + film.getTittel() + "\n" +
 		"| Aar: " + film.getAar() + "\n" +
 		"| Produsent: " + film.getProdusent() + "\n" +
 		"| Studio: " + film.getStudio() + "\n" +
 		"| Film nummer: " + film.getFilmnr() + "\n" +
-        "| Sjanger: " + film.getSjanger().toString()
+        "| Sjanger: " + film.getSjanger().toString() + "\n" +
+        "| "
 		);
 	}
 
@@ -62,31 +62,47 @@ public class Tekstgrensesnitt{
 		Film[] filmtab = arkiv.soekTittel(delstreng);
         for (Film i : filmtab) {
             skrivUtFilm(i);
-            System.out.println();
         }
 	}
 
-    /*
+
 	// Skriver ut alle Filmer av en produsent (produsent er delstreng)
 	public void skrivUtFilmProdusent(FilmarkivADT arkiv, String delstreng) {
-		for (int i = 0; i < arkiv.length; i++){
-			if (arkiv[i].equals(Film.getProdusent(delstreng))){
-				System.out.println(arkiv[i]);
-			}
-		}
+        Film[] filmtab = arkiv.soekProdusent(delstreng);
+        for (Film i : filmtab) {
+            skrivUtFilm(i);
+        }
 	}
+
+
 	// Skriver ut en enkel statistikk som inneholder antall filmer totalt
 	// og hvor mange det er i hver sjanger.
 	public void skrivUtStatistikk(FilmarkivADT arkiv) {
-		int antallFilmer = 0;
-		HashMap<Film, Integer> stats = new HashMap<>();
-		for (Film film : arkiv){
-			antallFilmer++;
-			stats.put(getSjanger(film), stats.getOrDefault(film, 0)+1);
-		}
-		for (Map.Entry<Film, Integer> entry : stats.entrySet()){
-			System.out.println(entry.getKey() + " - " + entry.getValue());
-		}
+		int antall = arkiv.antall();
+        int action = arkiv.antall(Sjanger.ACTION);
+        int adventure = arkiv.antall(Sjanger.ADVENTURE);
+        int comedy = arkiv.antall(Sjanger.COMEDY);
+        int documentary = arkiv.antall(Sjanger.DOCUMENTARY);
+        int drama = arkiv.antall(Sjanger.DRAMA);
+        int fantasy = arkiv.antall(Sjanger.FANTASY);
+        int horror = arkiv.antall(Sjanger.HORROR);
+        int reality = arkiv.antall(Sjanger.REALITY);
+        int scifi = arkiv.antall(Sjanger.SCIFI);
+
+
+        System.out.println(
+                "| Antall filmer: " + antall + "\n" +
+                "| Antall actionfilmer: " + action + "\n" +
+                "| Antall advneturefilmer: " + adventure + "\n" +
+                "| Antall comedyfilmer: " + comedy + "\n" +
+                "| Antall documentaryfilmer: " + documentary + "\n" +
+                "| Antall dramafilmer: " + drama + "\n" +
+                "| Antall fantasyfilmer: " + fantasy + "\n" +
+                "| Antall horrorfilmer: " + horror + "\n" +
+                "| Antall realityfilmer: " + reality + "\n" +
+                "| Antall scififilmer: " + scifi + "\n"
+        );
 	}
+
 	// andre metoder her*/
 }

@@ -75,8 +75,9 @@ public class Meny{
                 }
                 case 0 -> ferdig = true;
                 default -> System.out.println("Ikke gyldig valg");
-                scanner.close();
+
             }
+            scanner.close();
         }
         System.out.println("Program avsluttet");
 	}	

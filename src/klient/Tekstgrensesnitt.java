@@ -2,15 +2,8 @@ package klient;
 
 import adt.FilmarkivADT;
 import impl.Film;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 import impl.Filmarkiv;
->>>>>>> Stashed changes
-=======
 import impl.Sjanger;
->>>>>>> Stashed changes
-
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,21 +21,9 @@ public class Tekstgrensesnitt{
         System.out.print("Produsent: ");
         String produsent = nyInput.nextLine();
 
-<<<<<<< Updated upstream
-        if (input.equals("1")) {
-<<<<<<< Updated upstream
-            System.out.print("Hva er tittelen til filmen du leter etter: ");
-            String tittel = nyInput.nextLine();
-            return arkiv.soekTittel(tittel);
-=======
-            Filmarkiv.soekTittel(input);
->>>>>>> Stashed changes
-        }
-=======
         System.out.println("Hva er tittelen til filmen?");
         System.out.print("Tittel: ");
         String tittel = nyInput.nextLine();
->>>>>>> Stashed changes
 
         System.out.println("Hvilket år kom filmen ut?");
         System.out.print("Utgivelsesår: ");

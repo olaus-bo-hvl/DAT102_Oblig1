@@ -50,6 +50,8 @@ public class Meny{
             System.out.println("(0): Avslutt");
             System.out.print("Velg et tall mellom (1-5): ");
             int valg = scanner.nextInt();
+            scanner.nextLine();
+
             switch (valg) {
                 case 1 -> {
                     Film film = tekstgr.lesFilm();
@@ -59,6 +61,7 @@ public class Meny{
                     System.out.print("Skriv inn film-nummer: ");
 
                     int nr = scanner.nextInt();
+                    scanner.nextLine();
                     Film film = filmarkiv.finnFilm(nr);
                     tekstgr.skrivUtFilm(film);
                 }

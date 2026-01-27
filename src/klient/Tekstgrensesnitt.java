@@ -56,15 +56,17 @@ public class Tekstgrensesnitt{
 		);
 	}
 
-	/*
-	// Skriver ut alle filmer med en spesiell delstreng i tittecdlen
+
+	// Skriver ut alle filmer med en spesiell delstreng i tittelen
 	public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
-		for (String tittel : arkiv){ // må trolig endre type her
-			if (tittel.contains(delstreng)){
-				System.out.println(tittel);
-			}
-		}
+		Film[] filmtab = arkiv.soekTittel(delstreng);
+        for (Film i : filmtab) {
+            skrivUtFilm(i);
+            System.out.println();
+        }
 	}
+
+    /*
 	// Skriver ut alle Filmer av en produsent (produsent er delstreng)
 	public void skrivUtFilmProdusent(FilmarkivADT arkiv, String delstreng) {
 		for (int i = 0; i < arkiv.length; i++){

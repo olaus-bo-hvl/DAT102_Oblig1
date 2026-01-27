@@ -35,10 +35,12 @@ public class Meny{
         filmarkiv.leggTilFilm(film5);
         filmarkiv.leggTilFilm(film6);
         boolean ferdig = false;
+
+        Scanner scanner = new Scanner(System.in);
+
         while(!ferdig) {
 
 
-            Scanner scanner = new Scanner(System.in);
             System.out.println("Hva vil du gjøre?");
             System.out.println("(1): Legg til film");
             System.out.println("(2): Skriv ut film");
@@ -77,8 +79,11 @@ public class Meny{
                 default -> System.out.println("Ikke gyldig valg");
 
             }
-            scanner.close();
+
         }
+
+        scanner.close();
+
         System.out.println("Program avsluttet");
 	}	
 }

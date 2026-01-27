@@ -34,38 +34,50 @@ public class Meny{
         filmarkiv.leggTilFilm(film4);
         filmarkiv.leggTilFilm(film5);
         filmarkiv.leggTilFilm(film6);
+        boolean ferdig = false;
+        while(!ferdig) {
 
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Hva vil du gjøre?");
-        System.out.println("(1): Legg til film");
-        System.out.println("(2): Skriv ut film");
-        System.out.println("(3): Skriv ut filmer med lignene tittel");
-        System.out.println("(4): Skriv ut film-produsent");
-        System.out.println("(5): Skriv ut statistikk fra arkivet");
-        System.out.print("Velg et tall mellom (1-5): ");
-        int valg = scanner.nextInt();
-        switch (valg) {
-            case 1 -> {
-                Film film = tekstgr.lesFilm();
-                filmarkiv.leggTilFilm(film);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Hva vil du gjøre?");
+            System.out.println("(1): Legg til film");
+            System.out.println("(2): Skriv ut film");
+            System.out.println("(3): Skriv ut filmer med lignene tittel");
+            System.out.println("(4): Skriv ut film-produsent");
+            System.out.println("(5): Skriv ut statistikk fra arkivet");
+            System.out.println("(0): Avslutt");
+            System.out.print("Velg et tall mellom (1-5): ");
+            int valg = scanner.nextInt();
+            switch (valg) {
+                case 1 -> {
+                    Film film = tekstgr.lesFilm();
+                    filmarkiv.leggTilFilm(film);
+                }
+                case 2 -> {
+                    System.out.print("Skriv inn film-nummer: ");
+
+                    int nr = scanner.nextInt();
+                    Film film = filmarkiv.finnFilm(nr);
+                    tekstgr.skrivUtFilm(film);
+                }
+                case 3 -> {
+                    System.out.print("Skriv inn tittel: ");
+                    String tittel = scanner.nextLine();
+                    tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, tittel);
+                }
+                case 4 -> {
+                    System.out.println("Skriv inn produsent: ");
+                    String produsent = scanner.nextLine();
+                    tekstgr.skrivUtFilmProdusent(filmarkiv, produsent);
+                }
+                case 5 -> {
+                    tekstgr.skrivUtStatistikk(filmarkiv);
+                }
+                case 0 -> ferdig = true;
+                default -> System.out.println("Ikke gyldig valg");
+                scanner.close();
             }
-            case 2 -> {
-                System.out.print("Skriv inn film-nummer: ");
-
-                int nr = scanner.nextInt();
-                Film film = filmarkiv.finnFilm(nr);
-                tekstgr.skrivUtFilm(film);
-            }
-            case 3 -> {
-                System.out.print("Skriv inn tittel: ");
-                String tittel = scanner.nextLine();
-                tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, tittel);
-            }
-            case 4 -> noe;
-            case 5 -> noe;
-
-            scanner.close();
         }
+        System.out.println("Program avsluttet");
 	}	
 }

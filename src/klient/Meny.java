@@ -27,31 +27,41 @@ public class Meny{
         Film film5 = new Film(5,"HVl-studios", "Harry Potter", 2001, "E408", Sjanger.DRAMA);
         Film film6 = new Film(6,"Warner", "Ringens Herre", 1999, "E409", Sjanger.FANTASY);
 
-        Filmarkiv arkiv = new Filmarkiv(10);
 
-        arkiv.leggTilFilm(film1);
-        arkiv.leggTilFilm(film2);
-        arkiv.leggTilFilm(film3);
-        arkiv.leggTilFilm(film4);
-        arkiv.leggTilFilm(film5);
-        arkiv.leggTilFilm(film6);
+        filmarkiv.leggTilFilm(film1);
+        filmarkiv.leggTilFilm(film2);
+        filmarkiv.leggTilFilm(film3);
+        filmarkiv.leggTilFilm(film4);
+        filmarkiv.leggTilFilm(film5);
+        filmarkiv.leggTilFilm(film6);
 
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hva vil du gjøre?");
-        System.out.println("(1): Finn film");
+        System.out.println("(1): Legg til film");
         System.out.println("(2): Skriv ut film");
         System.out.println("(3): Skriv ut filmer med lignene tittel");
         System.out.println("(4): Skriv ut film-produsent");
         System.out.println("(5): Skriv ut statistikk fra arkivet");
         System.out.print("Velg et tall mellom (1-5): ");
         int valg = scanner.nextInt();
-        switch (valg){
-            case 1 -> tekstgr.finnFilm();
-            case 2 -> System.out.print("Hvilken film vil du skrive ut? : ");
-            Film film = scanner.nextLine();
-                    tekstgr.skrivUtFilm();
-            case 3 -> noe;
+        switch (valg) {
+            case 1 -> {
+                Film film = tekstgr.lesFilm();
+                filmarkiv.leggTilFilm(film);
+            }
+            case 2 -> {
+                System.out.print("Skriv inn film-nummer: ");
+
+                int nr = scanner.nextInt();
+                Film film = filmarkiv.finnFilm(nr);
+                tekstgr.skrivUtFilm(film);
+            }
+            case 3 -> {
+                System.out.print("Skriv inn tittel: ");
+                String tittel = scanner.nextLine();
+                tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, tittel);
+            }
             case 4 -> noe;
             case 5 -> noe;
 

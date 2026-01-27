@@ -2,6 +2,10 @@ package klient;
 
 import adt.FilmarkivADT;
 import impl.Film;
+<<<<<<< Updated upstream
+=======
+import impl.Filmarkiv;
+>>>>>>> Stashed changes
 
 import java.util.Scanner;
 import java.util.HashMap;
@@ -23,9 +27,13 @@ public class Tekstgrensesnitt{
         }
 
         if (input.equals("1")) {
+<<<<<<< Updated upstream
             System.out.print("Hva er tittelen til filmen du leter etter: ");
             String tittel = nyInput.nextLine();
             return arkiv.soekTittel(tittel);
+=======
+            Filmarkiv.soekTittel(input);
+>>>>>>> Stashed changes
         }
 
 		return Film.getTittel(les);

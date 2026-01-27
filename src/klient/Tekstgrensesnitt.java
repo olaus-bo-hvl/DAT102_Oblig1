@@ -17,11 +17,11 @@ public class Tekstgrensesnitt{
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void skrivUtFilm(Film film) {
 		System.out.println(
-		"| Tittel: " + Film.getTittel(film) + "\n" +
-		"| Aar: " + Film.getAar(film) + "\n" +
-		"| Produsent: " + Film.getProdusent(film) + "\n" +
-		"| Studio: " + Film.getStudio(film) + "\n" +
-		"| Film nummer: " + Film.getFilmnr(film)
+		"| Tittel: " + film.getTittel() + "\n" +
+		"| Aar: " + film.getAar() + "\n" +
+		"| Produsent: " + film.getProdusent() + "\n" +
+		"| Studio: " + film.getStudio() + "\n" +
+		"| Film nummer: " + film.getFilmnr()
 		);
 	}
 	// Skriver ut alle filmer med en spesiell delstreng i tittecdlen

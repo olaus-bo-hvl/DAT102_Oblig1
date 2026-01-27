@@ -37,13 +37,13 @@ public class Tekstgrensesnitt{
                 "DOCUMENTARY, DRAMA, FANTASY, \n" +
                 "HORROR, REALITY, SCIFI;");
         System.out.print("Sjanger: ");
-        String tempsjanger = nyInput.nextLine().toUpperCase();
-        Sjanger sjanger = Sjanger.valueOf(tempsjanger);
+        String tempsjanger = nyInput.nextLine();
+        Sjanger sjanger = Sjanger.sok(tempsjanger);
 
         Film film = new Film(filmnr,produsent,tittel,aar,studio,sjanger);
 		return film;
 	}
-    /*
+
 	// Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
 	public void skrivUtFilm(Film film) {
 		System.out.println(
@@ -51,9 +51,12 @@ public class Tekstgrensesnitt{
 		"| Aar: " + film.getAar() + "\n" +
 		"| Produsent: " + film.getProdusent() + "\n" +
 		"| Studio: " + film.getStudio() + "\n" +
-		"| Film nummer: " + film.getFilmnr()
+		"| Film nummer: " + film.getFilmnr() + "\n" +
+        "| Sjanger: " + film.getSjanger().toString()
 		);
 	}
+
+	/*
 	// Skriver ut alle filmer med en spesiell delstreng i tittecdlen
 	public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
 		for (String tittel : arkiv){ // må trolig endre type her

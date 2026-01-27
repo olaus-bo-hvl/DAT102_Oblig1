@@ -65,7 +65,7 @@ public class Filmarkiv implements FilmarkivADT {
         int lengde = 0;     // skal indikere hvor i tempTab som er neste ledige plass
         // går gjennom tabellen og ser hvis tittelene inneholder delstrengen. hvis ja, legges den filmen til i tempTab.
         for (int i = 0; i < antall; i++) {
-            if (filmTab[i].getTittel().contains(delstreng)) {
+            if (filmTab[i].getTittel().toUpperCase().contains(delstreng.toUpperCase())) {
                 tempTab[lengde] = filmTab[i];
                 lengde++;
             }
@@ -80,7 +80,7 @@ public class Filmarkiv implements FilmarkivADT {
         int lengde = 0;     // skal indikere hvor i tempTab som er neste ledige plass
         // går gjennom tabellen og ser hvis produsenten inneholder delstrengen. hvis ja, legges den filmen til i tempTab.
         for (int i = 0; i < antall; i++) {
-            if (filmTab[i].getProdusent().contains(delstreng)) {
+            if (filmTab[i].getProdusent().toUpperCase().contains(delstreng.toUpperCase())) {
                 tempTab[lengde] = filmTab[i];
                 lengde++;
             }

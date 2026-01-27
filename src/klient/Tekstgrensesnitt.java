@@ -13,6 +13,7 @@ public class Tekstgrensesnitt{
         System.out.println("Hva er filmnummeret til filmen?");
         System.out.print("Filmnummer: ");
         int filmnr = nyInput.nextInt();
+        nyInput.nextLine();
 
         System.out.println("Hvem er produsenten til filmen?");
         System.out.print("Produsent: ");
@@ -25,6 +26,7 @@ public class Tekstgrensesnitt{
         System.out.println("Hvilket år kom filmen ut?");
         System.out.print("Utgivelsesår: ");
         int aar = nyInput.nextInt();
+        nyInput.nextLine();
 
         System.out.println("Hvilket studio laget filmen?");
         System.out.print("Studio: ");
@@ -59,18 +61,36 @@ public class Tekstgrensesnitt{
 
 	// Skriver ut alle filmer med en spesiell delstreng i tittelen
 	public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
-		Film[] filmtab = arkiv.soekTittel(delstreng);
+		boolean funnet = false;
+
+        Film[] filmtab = arkiv.soekTittel(delstreng);
         for (Film i : filmtab) {
-            skrivUtFilm(i);
+            if (i != null) {
+                skrivUtFilm(i);
+                funnet = true;
+            }
+        }
+
+        if (!funnet) {
+            System.out.println("Ingen filmer funnet.");
         }
 	}
 
 
 	// Skriver ut alle Filmer av en produsent (produsent er delstreng)
 	public void skrivUtFilmProdusent(FilmarkivADT arkiv, String delstreng) {
+        boolean funnet = false;
+
         Film[] filmtab = arkiv.soekProdusent(delstreng);
         for (Film i : filmtab) {
-            skrivUtFilm(i);
+            if (i != null) {
+                skrivUtFilm(i);
+                funnet = true;
+            }
+        }
+
+        if (!funnet) {
+            System.out.println("Ingen filmer funnet.");
         }
 	}
 
@@ -103,6 +123,7 @@ public class Tekstgrensesnitt{
                 "| Antall scififilmer: " + scifi + "\n"
         );
 	}
+
 
 	// andre metoder her*/
 }
